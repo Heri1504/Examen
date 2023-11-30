@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Eventos</title>
+  <style>
+    .boton-eliminar {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-crear {
+      background-color: #00ff00;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton-eliminar:hover {
+      background-color: #cc0000;
+    }
+
+    .boton-crear:hover {
+      background-color: #00cc00;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Lista de Eventos</h1>
+
+
+<button class="boton-eliminar" onclick="eliminarEventos()">Eliminar</button>
+<button class="boton-crear" onclick="crearEvento()">Crear</button>
+
+
+<ul id="lista-eventos"></ul>
+
+<script>
+ 
+  var eventos = ["Evento 1", "Evento 2", "Evento 3", "Evento 4", "Evento 5"];
+
+  
+  function mostrarEventos() {
+    var listaDesordenada = document.getElementById("lista-eventos");
+
+    
+    listaDesordenada.innerHTML = "";
+
+    
+    for (var i = 0; i < eventos.length; i++) {
+      var evento = eventos[i];
+      var listItem = document.createElement("li");
+      listItem.textContent = evento;
+      listaDesordenada.appendChild(listItem);
+    }
+  }
+
+  
+  function eliminarEventos() {
+    
+    eventos = [];
+    mostrarEventos();
+  }
+
+  
+  function crearEvento() {
+    
+    var nuevoEvento = prompt("Ingrese el nuevo evento:");
+    if (nuevoEvento) {
+      eventos.push(nuevoEvento);
+      mostrarEventos();
+    }
+  }
+
+  
+</script>
+
+</body>
+</html>
+
